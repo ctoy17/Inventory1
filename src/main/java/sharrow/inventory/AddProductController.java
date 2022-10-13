@@ -136,7 +136,7 @@ public class AddProductController implements Initializable {
             confirm.setTitle("Warning");
             confirm.setContentText("Are you sure you want to remove this part?");
             Optional<ButtonType> answer = confirm.showAndWait();
-            if (answer.isPresent() && answer.get()== ButtonType.YES){
+            if (answer.isPresent() && answer.get()== ButtonType.OK){
                 assocPart.remove(partSelected);
                 assocPartTable.setItems(assocPart);
             }

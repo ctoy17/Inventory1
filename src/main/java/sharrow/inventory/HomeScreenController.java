@@ -167,14 +167,15 @@ public class HomeScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         partTable.setItems(Inventory.getPartsList());
+        partID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+
         prodTable.setItems(Inventory.getProductList());
-        partID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        prodID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        partName.setCellValueFactory(new PropertyValueFactory<>("NAME"));
-        prodName.setCellValueFactory(new PropertyValueFactory<>("NAME"));
-        partStock.setCellValueFactory(new PropertyValueFactory<>("STOCK"));
-        prodStock.setCellValueFactory(new PropertyValueFactory<>("STOCK"));
-        partPrice.setCellValueFactory(new PropertyValueFactory<>("PRICE"));
-        prodPrice.setCellValueFactory(new PropertyValueFactory<>("PRICE"));
+        prodID.setCellValueFactory(new PropertyValueFactory<>("productID"));
+        prodName.setCellValueFactory(new PropertyValueFactory<>("prodName"));
+        prodStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        prodPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 }

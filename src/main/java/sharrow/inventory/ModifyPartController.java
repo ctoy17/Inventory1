@@ -116,7 +116,7 @@ public class ModifyPartController implements Initializable {
         alert.setHeaderText("Cancel");
         alert.setContentText("Are you sure you want to cancel?");
         Optional<ButtonType> answer = alert.showAndWait();
-        if (answer.isPresent() && answer.get()==ButtonType.YES){
+        if (answer.isPresent() && answer.get()==ButtonType.OK){
             homeScreen(actionEvent);
         }
     }

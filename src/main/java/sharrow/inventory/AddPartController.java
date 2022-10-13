@@ -144,7 +144,7 @@ public class AddPartController implements Initializable {
         alert.setTitle("Cancel");
         alert.setContentText("Cancel and go back to Home Screen.");
         Optional<ButtonType> answer = alert.showAndWait();
-        if (answer.isPresent() && answer.get() == ButtonType.YES){
+        if (answer.isPresent() && answer.get() == ButtonType.OK){
             homeScreen(actionEvent);
         }
     }
