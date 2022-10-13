@@ -39,8 +39,6 @@ public class AddProductController implements Initializable {
     @FXML private TableColumn<Part, Double> assocPartPrice;
     private ObservableList<Part> assocPart = FXCollections.observableArrayList();
 
-    public AddProductController() {
-    }
 
 
     private void throwAlert(int alertType) {
@@ -147,7 +145,7 @@ public class AddProductController implements Initializable {
         cancel.setTitle("Warning");
         cancel.setContentText("Do you want to cancel and return home?");
         Optional<ButtonType> answer = cancel.showAndWait();
-        if (answer.isPresent() && answer.get() == ButtonType.YES){
+        if (answer.isPresent() && answer.get() == ButtonType.OK){
             homeScreen(actionEvent);
         }
     }
@@ -176,14 +174,14 @@ public class AddProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        partId.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        partName.setCellValueFactory(new PropertyValueFactory<>("NAME"));
-        partStock.setCellValueFactory(new PropertyValueFactory<>("STOCK"));
-        partPrice.setCellValueFactory(new PropertyValueFactory<>("PRICE"));
-        assocPartId.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        assocPartName.setCellValueFactory(new PropertyValueFactory<>("NAME"));
-        assocPartStock.setCellValueFactory(new PropertyValueFactory<>("STOCK"));
-        assocPartPrice.setCellValueFactory(new PropertyValueFactory<>("PRICE"));
+        partId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        assocPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        assocPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        assocPartStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        assocPartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         partTable.setItems(Inventory.getPartsList());
     }
 }

@@ -33,7 +33,7 @@ public class Product {
     public ObservableList<Part> getAssociatedParts() {
         return associatedParts;
     }
-    public String getName() {
+    public String getProdName() {
         return this.prodName;
     }
     public void setProdName(String prodName){

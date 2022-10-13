@@ -34,7 +34,7 @@
       <Label layoutX="57.0" layoutY="220.0" text="Inv" />
       <Label layoutX="57.0" layoutY="260.0" text="Price/Cost" />
       <Label layoutX="57.0" layoutY="300.0" text="Max" />
-      <Label layoutX="57.0" layoutY="340.0" text="Machine ID" />
+      <Label fx:id="radioButtonLabel" layoutX="57.0" layoutY="340.0" text="Machine ID" />
       <Label layoutX="354.0" layoutY="300.0" text="Min" />
       <Button layoutX="392.0" layoutY="427.0" mnemonicParsing="false" onAction="#onClickSave" text="Save" />
       <Button cancelButton="true" layoutX="498.0" layoutY="427.0" mnemonicParsing="false" onAction="#onClickCancel" text="Cancel" />

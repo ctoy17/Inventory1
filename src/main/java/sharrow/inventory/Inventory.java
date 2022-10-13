@@ -42,7 +42,7 @@ public class Inventory {
     public static ObservableList<Product> searchProd(String prodName){
         ObservableList<Product> prodsReturned = FXCollections.observableArrayList();
         for(Product product : productList){
-            if(product.getName().equals(prodName)){
+            if(product.getProdName().equals(prodName)){
                 prodsReturned.add(product);
             }
         }return prodsReturned;

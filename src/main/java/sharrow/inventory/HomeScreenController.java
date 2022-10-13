@@ -148,7 +148,7 @@ public class HomeScreenController implements Initializable {
         ObservableList<Product> prodResult = FXCollections.observableArrayList();
         String searchResults = searchProd.getText();
         for (Product product : products){
-            if(String.valueOf(product.getProductID()).contains(searchResults) || product.getName().contains(searchResults)){
+            if(String.valueOf(product.getProductID()).contains(searchResults) || product.getProdName().contains(searchResults)){
                 prodResult.add(product);
             }
         }

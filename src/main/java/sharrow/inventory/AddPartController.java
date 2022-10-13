@@ -15,24 +15,22 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AddPartController implements Initializable {
-    public TextField idField;
-    public TextField nameField;
-    public TextField priceField;
-    public TextField stockField;
-    public TextField minField;
-    public TextField maxField;
-    public TextField machineNameField;
-    Stage stage;
-    Parent scene;
+/**The Add Parts Controller Class handles the logic for adding new parts to the inventory system**/
 
-    @FXML public ToggleGroup location;
+public class AddPartController implements Initializable {
+    @FXML private TextField idField;
+    @FXML private TextField nameField;
+    @FXML private TextField priceField;
+    @FXML private TextField stockField;
+    @FXML private TextField minField;
+    @FXML private TextField maxField;
+    @FXML private TextField machineNameField;
+    @FXML private ToggleGroup location;
     @FXML private RadioButton inHouseSelector;
     @FXML private RadioButton outsourcedSelector;
     @FXML private Label radioButtonLabel;
-
-     ;
-
+    private boolean inHouse;
+    /**This switch case will throw an alert to the user depending on the value passed through**/
 
     private void throwAlert(int alertType) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -63,15 +61,19 @@ public class AddPartController implements Initializable {
             }
         }
     }
+    /**This method changes the label for Machine ID or Company Name depending on what radio button is selected**/
     public void onClickInHouse(ActionEvent actionEvent) {
-        if (this.location.getSelectedToggle().equals(this.inHouseSelector))
             radioButtonLabel.setText("Machine ID");
+            machineNameField.setPromptText("Machine ID");
+            inHouse= true;
     }
 
     public void onClickOutsourced(ActionEvent actionEvent) {
-        if (this.location.getSelectedToggle().equals(this.outsourcedSelector))
             radioButtonLabel.setText("Company Name");
+            machineNameField.setPromptText("Company Name");
+            inHouse = false;
     }
+    /**This method ensures that the stock number entered is valid and between the min and max. it throws an alert if not**/
     private boolean inStock(int min, int max, int stock){
         boolean validStockNum = true;
         if (stock < min || stock > max){
@@ -80,6 +82,8 @@ public class AddPartController implements Initializable {
         }
         return validStockNum;
     }
+
+    /**This method checks to ensure the min value added is valid**/
     private  boolean minStock(int min, int max){
         boolean validMinNum = true;
         if (min <= 0 || min >= max){
@@ -104,7 +108,7 @@ public class AddPartController implements Initializable {
             int min = Integer.parseInt(minField.getText());
             int max = Integer.parseInt(maxField.getText());
             int machineId;
-            String companyName;
+            String companyName = machineNameField.getText();
             boolean partAdded = false;
             int id = 0;
 
@@ -124,9 +128,9 @@ public class AddPartController implements Initializable {
                         }
                     }
                     if (outsourcedSelector.isSelected()) {
-                        companyName = machineNameField.getText();
                         Outsourced newOutsourcedPart = new Outsourced(id, name, price, stock, min, max, companyName);
                         newOutsourcedPart.setId(Inventory.getNewId());
+                        newOutsourcedPart.setCompanyName(companyName);
                         Inventory.addNewPart(newOutsourcedPart);
                         partAdded = true;
                     }
@@ -150,6 +154,8 @@ public class AddPartController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        inHouseSelector.setSelected(true);
+        ToggleGroup location = new ToggleGroup();
+        inHouseSelector.setToggleGroup(location);
+        outsourcedSelector.setToggleGroup(location);
     }
 }

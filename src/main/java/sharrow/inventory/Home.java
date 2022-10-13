@@ -9,7 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**This class creates the inventory application**/
 public class Home extends Application {
+    /**This method is the home page GUI. It is the first screen the user sees**/
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Inventory.fxml")));
@@ -19,6 +21,7 @@ public class Home extends Application {
         stage.show();
     }
 
+    /** This method generates test data and is the primary method of launching the application**/
     public static void main(String[] args) {
         int partID = Inventory.getNewId();
         InHouse notebook = new InHouse(partID, "Notebook", 7.99, 15, 1, 20, 4);

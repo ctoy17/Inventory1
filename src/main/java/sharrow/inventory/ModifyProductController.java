@@ -164,18 +164,18 @@ public class ModifyProductController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productToMod = HomeScreenController.getModifySelectedProd();
         assocParts = productToMod.getAssociatedParts();
-        assocPartID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        assocPartName.setCellValueFactory(new PropertyValueFactory<>("NAME"));
-        assocPartPrice.setCellValueFactory(new PropertyValueFactory<>("PRICE"));
-        assocPartStock.setCellValueFactory(new PropertyValueFactory<>("STOCK"));
+        assocPartID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        assocPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        assocPartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        assocPartStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         assocPartTable.setItems(assocParts);
-        partID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        partName.setCellValueFactory(new PropertyValueFactory<>("NAME"));
-        partPrice.setCellValueFactory(new PropertyValueFactory<>("PRICE"));
-        partStock.setCellValueFactory(new PropertyValueFactory<>("STOCK"));
+        partID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        partStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         partTable.setItems(Inventory.getPartsList());
         prodID.setText(String.valueOf(productToMod.getProductID()));
-        prodName.setText(productToMod.getName());
+        prodName.setText(productToMod.getProdName());
         prodPrice.setText(String.valueOf(productToMod.getPrice()));
         prodStock.setText(String.valueOf(productToMod.getStock()));
         prodMin.setText(String.valueOf(productToMod.getMin()));
