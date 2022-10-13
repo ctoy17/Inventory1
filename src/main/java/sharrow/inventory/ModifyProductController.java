@@ -82,7 +82,7 @@ public class ModifyProductController implements Initializable {
         try {
             int modID = productToMod.getProductID();
             String modName = prodName.getText();
-            Double modPrice = Double.parseDouble(prodPrice.getText());
+            double modPrice = Double.parseDouble(prodPrice.getText());
             int modStock = Integer.parseInt(prodStock.getText());
             int modMin = Integer.parseInt(prodMin.getText());
             int modMax = Integer.parseInt(prodMax.getText());
@@ -153,7 +153,7 @@ public class ModifyProductController implements Initializable {
             alert.setTitle("Confirmation");
             alert.setContentText("Are you sure you want to remove the selected part?");
             Optional<ButtonType> answer = alert.showAndWait();
-            if(answer.isPresent() && answer.get() == ButtonType.YES){
+            if(answer.isPresent() && answer.get() == ButtonType.OK){
                 assocParts.remove(partSelected);
                 assocPartTable.setItems(assocParts);
             }
@@ -176,10 +176,10 @@ public class ModifyProductController implements Initializable {
         partTable.setItems(Inventory.getPartsList());
         prodID.setText(String.valueOf(productToMod.getProductID()));
         prodName.setText(productToMod.getProdName());
-        prodPrice.setText(String.valueOf(productToMod.getPrice()));
-        prodStock.setText(String.valueOf(productToMod.getStock()));
-        prodMin.setText(String.valueOf(productToMod.getMin()));
-        prodMax.setText(String.valueOf(productToMod.getMax()));
+        prodPrice.setText(Double.toString(productToMod.getPrice()));
+        prodStock.setText(Integer.toString(productToMod.getStock()));
+        prodMin.setText(Integer.toString(productToMod.getMin()));
+        prodMax.setText(Integer.toString(productToMod.getMax()));
 
     }
 }
