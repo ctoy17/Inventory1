@@ -64,13 +64,11 @@ public class AddPartController implements Initializable {
     /**This method changes the label for Machine ID or Company Name depending on what radio button is selected**/
     public void onClickInHouse(ActionEvent actionEvent) {
             radioButtonLabel.setText("Machine ID");
-            machineNameField.setPromptText("Machine ID");
-            inHouse= true;
+            inHouse = true;
     }
 
     public void onClickOutsourced(ActionEvent actionEvent) {
             radioButtonLabel.setText("Company Name");
-            machineNameField.setPromptText("Company Name");
             inHouse = false;
     }
     /**This method ensures that the stock number entered is valid and between the min and max. it throws an alert if not**/

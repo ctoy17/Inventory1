@@ -14,7 +14,7 @@
       <TextField fx:id="prodPriceField" layoutX="135.0" layoutY="244.0" prefHeight="25.0" prefWidth="80.0" />
       <TextField fx:id="prodStockField" layoutX="135.0" layoutY="204.0" prefHeight="25.0" prefWidth="80.0" />
       <TextField fx:id="prodNameField" layoutX="135.0" layoutY="164.0" />
-      <TextField fx:id="prodID" disable="true" editable="false" layoutX="135.0" layoutY="124.0" text="Auto Gen - Disabled" />
+      <TextField fx:id="productIDField" disable="true" editable="false" layoutX="135.0" layoutY="124.0" text="Auto Gen - Disabled" />
       <TextField fx:id="partSearch" layoutX="716.0" layoutY="26.0" promptText="Search by Part ID or Name" />
       <TableView fx:id="partTable" layoutX="556.0" layoutY="76.0" prefHeight="200.0" prefWidth="378.0">
         <columns>
