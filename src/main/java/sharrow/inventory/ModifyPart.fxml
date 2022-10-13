@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="500" maxWidth="600" minHeight="500.0" minWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sharrow.inventory.ModifyPartController">
+    <Label layoutX="47.0" layoutY="76.0" text="Add Part">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Label>
+    <RadioButton fx:id="inHousePart" layoutX="177.0" layoutY="77.0" mnemonicParsing="false" onAction="#onSelectInHouse" text="In-House" wrapText="true">
+        <toggleGroup>
+            <ToggleGroup fx:id="location" />
+        </toggleGroup></RadioButton>
+    <RadioButton fx:id="outsourcedPart" layoutX="354.0" layoutY="77.0" mnemonicParsing="false" onAction="#onSelectOutsourced" text="Outsourced" toggleGroup="$location" wrapText="true" />
+    <Label layoutX="57.0" layoutY="140.0" text="ID" />
+    <TextField fx:id="partName" layoutX="170.0" layoutY="175.0" />
+    <TextField fx:id="partStockField" layoutX="170.0" layoutY="215.0" />
+    <TextField fx:id="partPriceField" layoutX="170.0" layoutY="255.0" />
+    <TextField fx:id="maxStockField" layoutX="170.0" layoutY="295.0" />
+    <TextField fx:id="idOrCompName" layoutX="170.0" layoutY="335.0" />
+    <TextField fx:id="minStockField" layoutX="392.0" layoutY="295.0" />
+    <TextField fx:id="partID" disable="true" editable="false" layoutX="170.0" layoutY="135.0" promptText="Auto Gen-Disabled">
+        <font>
+            <Font name="System Italic" size="13.0" />
+        </font></TextField>
+    <Label layoutX="57.0" layoutY="180.0" text="Name" />
+    <Label layoutX="57.0" layoutY="220.0" text="Inv" />
+    <Label layoutX="57.0" layoutY="260.0" text="Price/Cost" />
+    <Label layoutX="57.0" layoutY="300.0" text="Max" />
+    <Label fx:id="idOrNameLabel" layoutX="57.0" layoutY="340.0" text="Machine ID" />
+    <Label layoutX="354.0" layoutY="300.0" text="Min" />
+    <Button layoutX="392.0" layoutY="427.0" mnemonicParsing="false" onAction="#onClickSave" text="Save" />
+    <Button cancelButton="true" layoutX="498.0" layoutY="427.0" mnemonicParsing="false" onAction="#onClickCancel" text="Cancel" />
+</AnchorPane>
