@@ -18,6 +18,8 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static sharrow.inventory.HomeScreenController.getModifySelectedProd;
+
 public class ModifyProductController implements Initializable {
     @FXML private TableView<Part> assocPartTable;
     @FXML private TableView<Part> partTable;
@@ -37,6 +39,7 @@ public class ModifyProductController implements Initializable {
     @FXML private TextField prodMin;
     @FXML private TextField prodMax;
     Product productToMod;
+    private int modID = getModifySelectedProd().getProductID();
     private ObservableList<Part> assocParts = FXCollections.observableArrayList();
     private boolean inStock(int modMin, int modMax, int modStock) {
         boolean stockValid = true;
@@ -80,7 +83,7 @@ public class ModifyProductController implements Initializable {
     }
     public void onClickSave(ActionEvent actionEvent) {
         try {
-            int modID = productToMod.getProductID();
+            int ID = modID;
             String modName = prodName.getText();
             double modPrice = Double.parseDouble(prodPrice.getText());
             int modStock = Integer.parseInt(prodStock.getText());
@@ -94,11 +97,12 @@ public class ModifyProductController implements Initializable {
                 alert.showAndWait();
             } else {
                 if (minAmount(modMin, modMax) && inStock(modMin, modMax, modStock)) {
-                    Product modProd = new Product(modID, modName, modPrice, modStock, modMin, modMax);
+                    Product modProd = new Product(ID, modName, modPrice, modStock, modMin, modMax);
                     for (Part part : assocParts) {
                         modProd.addAssociatedPart(part);
                     }
                     Inventory.addNewProduct(modProd);
+                    Inventory.deleteProd(productToMod);
                     homeScreen(actionEvent);
                 }
             }
@@ -162,7 +166,7 @@ public class ModifyProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        productToMod = HomeScreenController.getModifySelectedProd();
+        productToMod = getModifySelectedProd();
         assocParts = productToMod.getAssociatedParts();
         assocPartID.setCellValueFactory(new PropertyValueFactory<>("id"));
         assocPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
