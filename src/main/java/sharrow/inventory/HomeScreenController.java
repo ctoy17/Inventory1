@@ -34,9 +34,11 @@ public class HomeScreenController implements Initializable {
     @FXML private TableColumn<Part, String> partPrice;
     @FXML private TableColumn<Product, String> prodPrice;
 
+    /**These methods control all of the interfaces on the home page**/
     public static Part getModifySelectedPart(){
         return modifySelectedPart;
     }
+    /**if a user has selected a product to modify, it will load that screen. if not, it throws an error**/
     public void onClickModifyPart(ActionEvent actionEvent) throws IOException{
         modifySelectedPart = partTable.getSelectionModel().getSelectedItem();
         if (modifySelectedPart == null){
@@ -52,6 +54,8 @@ public class HomeScreenController implements Initializable {
             stage.show();
         }
     }
+    /**if a user has selected a product to add, it will load that screen. if not, it throws an error**/
+
     public void onClickAddPart(ActionEvent actionEvent) throws IOException{
         Parent parent = FXMLLoader.load(getClass().getResource("AddPart.fxml"));
         Scene scene = new Scene(parent);
@@ -59,6 +63,8 @@ public class HomeScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    /**if a user has selected a product to delete, it will load that screen. if not, it throws an error**/
+
     public void onClickDeletePart(ActionEvent actionEvent) {
         Part partSelected = partTable.getSelectionModel().getSelectedItem();
         if (partSelected == null) {
@@ -143,6 +149,7 @@ public class HomeScreenController implements Initializable {
             }
         }
     }
+    /**controls the search results. if a product is found it is returned to the user. if not, an error is thrown.**/
     public void prodSearch(ActionEvent actionEvent){
         ObservableList<Product> products = Inventory.getProductList();
         ObservableList<Product> prodResult = FXCollections.observableArrayList();
@@ -160,6 +167,7 @@ public class HomeScreenController implements Initializable {
             alert.showAndWait();
         }
     }
+    /**clicking exit will close the application**/
     public void onClickClose(ActionEvent actionEvent){
         System.exit(0);
     }

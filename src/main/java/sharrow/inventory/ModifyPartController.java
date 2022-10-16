@@ -28,13 +28,14 @@ public class ModifyPartController implements Initializable {
     @FXML private ToggleGroup location;
     @FXML private Label idOrNameLabel;
     private Part partToModify;
-
+/**changes label of the radio button depending on what is selected**/
     public void onSelectInHouse(ActionEvent actionEvent){
         idOrNameLabel.setText("Machine ID");
     }
     public void onSelectOutsourced(ActionEvent actionEvent){
         idOrNameLabel.setText("Company Name");
     }
+    /**updates user selected part**/
     public void onClickSave(ActionEvent actionEvent){
         try{
             int modID = partToModify.getId();
@@ -78,6 +79,7 @@ public class ModifyPartController implements Initializable {
             alert.showAndWait();
         }
     }
+    /**validates stock/inventory number is within max and min**/
     private boolean inStock(int modMin, int modMax, int modStock) {
         boolean stockValid = true;
         if (modStock< modMin || modStock > modMax){

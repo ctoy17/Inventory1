@@ -52,7 +52,7 @@ public class ModifyProductController implements Initializable {
             alert.showAndWait();
         }return stockValid;
     }
-
+/**validates the minimum amount is lower than the max and stock**/
     private boolean minAmount(int modMin, int modMax) {
         boolean minValid = true;
         if (modMin <= 0 || modMin >= modMax){
@@ -81,6 +81,7 @@ public class ModifyProductController implements Initializable {
             homeScreen(actionEvent);
         }
     }
+    /**daves the new modified product and removes the older version**/
     public void onClickSave(ActionEvent actionEvent) {
         try {
             int ID = modID;
@@ -131,6 +132,7 @@ public class ModifyProductController implements Initializable {
             alert.showAndWait();
         }
     }
+    /**adds associated parts to the product**/
     public void onClickAdd(ActionEvent actionEvent){
         Part partSelected = partTable.getSelectionModel().getSelectedItem();
         if(partSelected == null){
@@ -144,6 +146,7 @@ public class ModifyProductController implements Initializable {
             assocPartTable.setItems(assocParts);
         }
     }
+    /**removes associated parts from product**/
     public void onClickRemove(ActionEvent actionEvent){
         Part partSelected = assocPartTable.getSelectionModel().getSelectedItem();
         if(partSelected == null){

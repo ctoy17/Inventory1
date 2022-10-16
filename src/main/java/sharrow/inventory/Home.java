@@ -9,7 +9,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-/**This class creates the inventory application**/
+/**This class creates the inventory application
+ * FUTURE ENHANCEMENT: Allow user to attach images of parts to easily identify the EXACT part that is being referenced
+ * this way if there were two parts with similar names, the user would be able to know what one by verifying with an image.
+ * RUNTIME ERROR: my modify part / product method was not operating correctly. My logic was correct, but did not realize I had a mismatch of naming conventions so when i tried
+ * to update, the system was unsure of what variable i was referencing.
+ *
+ * I also had a problem where I was receiving an error due to storing the product name as an integer instead of a string.
+ * I quickly saw that it said int, rather than string, so was able to rectify before too many issues arose from the wrong data type.
+ * When i went to add a product, everything loaded except the name, so i knew that there was something wrong with how it was stored.**/
 public class Home extends Application {
     /**This method is the home page GUI. It is the first screen the user sees**/
     @Override

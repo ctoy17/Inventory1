@@ -90,6 +90,8 @@ public class AddPartController implements Initializable {
         }
         return validMinNum;
     }
+
+    /**This method brings the user back to the main screen and loads the inventory resource **/
     private void homeScreen(ActionEvent actionEvent) throws IOException{
         Parent parent = FXMLLoader.load(getClass().getResource("Inventory.fxml"));
         Scene scene = new Scene(parent);
@@ -98,6 +100,7 @@ public class AddPartController implements Initializable {
         stage.show();
 
     }
+    /**This will save the new part to the part table**/
     public void onClickSave(ActionEvent actionEvent) throws IOException {
         try {
             String name = nameField.getText();
@@ -141,6 +144,9 @@ public class AddPartController implements Initializable {
             throwAlert(1);
         }
     }
+
+
+    /**This cancels the adding a part event**/
     public void onClickCancel(ActionEvent actionEvent) throws IOException{
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cancel");

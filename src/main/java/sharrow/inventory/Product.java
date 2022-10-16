@@ -30,15 +30,18 @@ public class Product {
         }else
             return false;
     }
+    /**gets all associated parts connected to a product**/
     public ObservableList<Part> getAssociatedParts() {
         return associatedParts;
     }
+    /**gets and sets product name**/
     public String getProdName() {
         return this.prodName;
     }
     public void setProdName(String prodName){
         this.prodName = prodName;
     }
+    /**gets and sets product ID**/
 
     public int getProductID() {
         return this.productID;
@@ -46,24 +49,32 @@ public class Product {
     public void setProductID(int productID){
         this.productID = productID;
     }
+    /**gets and sets product price**/
+
     public double getPrice(){
         return this.price;
     }
     public void setPrice(double price){
         this.price = price;
     }
+    /**gets and sets product stock**/
+
     public int getStock(){
         return this.stock;
     }
     public void setStock(int stock){
         this.stock = stock;
     }
+    /**gets and sets product min**/
+
     public int getMin(){
         return this.min;
     }
     public void setMin(int min){
         this.min = min;
     }
+    /**gets and sets product max**/
+
     public int getMax(){
         return this.max;
     }

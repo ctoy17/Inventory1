@@ -89,6 +89,7 @@ public class AddProductController implements Initializable {
             throwAlert(5);
         }
     }
+    /**adds product to the table when all fields are properly added**/
     public void onClickSave(ActionEvent actionEvent){
         try{
             int id =0;
@@ -116,6 +117,7 @@ public class AddProductController implements Initializable {
             throwAlert(1);
         }
     }
+    /**allows user to associate parts to the main product**/
     public void onClickAdd(ActionEvent actionEvent){
         Part partSelected = partTable.getSelectionModel().getSelectedItem();
         if(partSelected == null){
@@ -125,6 +127,8 @@ public class AddProductController implements Initializable {
             assocPartTable.setItems(assocPart);
         }
     }
+    /**allows user to remove associated parts from the main product**/
+
     public void onClickRemoveAssocPart(ActionEvent actionEvent){
         Part partSelected = assocPartTable.getSelectionModel().getSelectedItem();
         if (partSelected == null){
@@ -156,6 +160,8 @@ public class AddProductController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    /**validates that the stock field is correct**/
+
     private boolean inStock(int min, int max, int stock) {
         boolean invValid = true;
         if(stock < min || stock > max){
@@ -163,7 +169,7 @@ public class AddProductController implements Initializable {
             throwAlert(2);
         }return invValid;
     }
-
+/**validates that the minimum number is not more than the max**/
     private boolean minValid(int min, int max) {
         boolean minInvValid = true;
         if (min<=0 || min >= max){
