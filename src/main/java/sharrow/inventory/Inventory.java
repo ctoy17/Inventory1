@@ -66,19 +66,17 @@ public class Inventory {
         productList.set(number, prodSelected);
     }
     public static boolean deletePart(Part partSelected){
-        for(Part part : partsList){
-            if (part == partSelected){
+        if (partsList.contains(partSelected)){
                 partsList.remove(partSelected);
                 return true;
             }
-        }return false;
+        else{return false;}
     }
     public static boolean deleteProd(Product prodSelected){
-        for (Product product : productList){
-            if (product == prodSelected){
+        if (productList.contains(prodSelected)){
                 productList.remove(prodSelected);
                 return true;
-            }
-        }return false;
+            }else{
+        return false;}
     }
 }

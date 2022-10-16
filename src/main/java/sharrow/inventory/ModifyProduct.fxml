@@ -13,8 +13,8 @@
         <TextField fx:id="prodName" layoutX="135.0" layoutY="164.0" />
         <TextField fx:id="prodMin" layoutX="296.0" layoutY="284.0" prefHeight="25.0" prefWidth="80.0" />
         <TextField fx:id="prodMax" layoutX="135.0" layoutY="284.0" prefHeight="25.0" prefWidth="80.0" />
-        <TextField fx:id="prodStock" layoutX="135.0" layoutY="244.0" prefHeight="25.0" prefWidth="80.0" />
-        <TextField fx:id="prodPrice" layoutX="135.0" layoutY="204.0" prefHeight="25.0" prefWidth="80.0" />
+        <TextField fx:id="prodPrice" layoutX="135.0" layoutY="244.0" prefHeight="25.0" prefWidth="80.0" />
+        <TextField fx:id="prodStock" layoutX="135.0" layoutY="204.0" prefHeight="25.0" prefWidth="80.0" />
         <TextField fx:id="partSearch" layoutX="716.0" layoutY="26.0" promptText="Search by Part ID or Name" />
         <TableView fx:id="partTable" layoutX="556.0" layoutY="76.0" prefHeight="200.0" prefWidth="378.0">
             <columns>

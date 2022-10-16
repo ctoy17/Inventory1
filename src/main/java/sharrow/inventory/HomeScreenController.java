@@ -71,7 +71,7 @@ public class HomeScreenController implements Initializable {
             alert.setTitle("WARNING");
             alert.setContentText("Are you sure you want to delete this part?");
             Optional<ButtonType> answer = alert.showAndWait();
-            if (answer.isPresent() && answer.get() == ButtonType.YES) {
+            if (answer.isPresent() && answer.get() == ButtonType.OK) {
                 Inventory.deletePart(partSelected);
             }
         }
@@ -130,7 +130,7 @@ public class HomeScreenController implements Initializable {
             alert.setTitle("WARNING");
             alert.setContentText("Are you sure you want to delete this product?");
             Optional<ButtonType> answer = alert.showAndWait();
-            if (answer.isPresent() && answer.get() == ButtonType.YES) {
+            if (answer.isPresent() && answer.get() == ButtonType.OK) {
                 ObservableList<Part> assocPart = prodSelected.getAssociatedParts();
                 if (assocPart.size() >= 1) {
                     Alert assocAlert = new Alert(Alert.AlertType.ERROR);
